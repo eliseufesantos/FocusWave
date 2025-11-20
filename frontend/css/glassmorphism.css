@@ -1,0 +1,356 @@
+/**
+ * Glassmorphism Utilities
+ * Reusable glass effect components with Apple aesthetics
+ */
+
+/* ========================================
+   BASE GLASS CARD
+   ======================================== */
+
+.glass-card {
+  background: var(--color-glass-bg);
+  backdrop-filter: blur(var(--blur-md));
+  -webkit-backdrop-filter: blur(var(--blur-md));
+  border: 1px solid var(--color-glass-border);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-glass);
+  transition: all var(--transition-base);
+}
+
+.glass-card--hover:hover {
+  background: var(--color-glass-bg-hover);
+  border-color: var(--color-glass-border-strong);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.glass-card--interactive {
+  cursor: pointer;
+}
+
+.glass-card--interactive:active {
+  background: var(--color-glass-bg-active);
+  transform: translateY(0);
+}
+
+
+/* ========================================
+   GLASS CARD VARIANTS
+   ======================================== */
+
+.glass-card--sm {
+  padding: var(--space-3);
+  border-radius: var(--radius-md);
+}
+
+.glass-card--md {
+  padding: var(--space-4);
+  border-radius: var(--radius-lg);
+}
+
+.glass-card--lg {
+  padding: var(--space-6);
+  border-radius: var(--radius-xl);
+}
+
+.glass-card--xl {
+  padding: var(--space-8);
+  border-radius: var(--radius-2xl);
+}
+
+
+/* ========================================
+   GLASS BUTTONS
+   ======================================== */
+
+.glass-button {
+  /* Base glass styling */
+  background: var(--color-glass-bg);
+  backdrop-filter: blur(var(--blur-sm));
+  -webkit-backdrop-filter: blur(var(--blur-sm));
+  border: 1px solid var(--color-glass-border);
+  border-radius: var(--radius-md);
+
+  /* Typography */
+  color: var(--color-text-primary);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  letter-spacing: var(--letter-spacing-tight);
+
+  /* Spacing */
+  padding: var(--button-padding-y) var(--button-padding-x);
+  height: var(--button-height-md);
+
+  /* Layout */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+
+  /* Interaction */
+  cursor: pointer;
+  transition: all var(--transition-base);
+  user-select: none;
+}
+
+.glass-button:hover {
+  background: var(--color-glass-bg-hover);
+  border-color: var(--color-glass-border-strong);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+.glass-button:active {
+  background: var(--color-glass-bg-active);
+  transform: translateY(0);
+  box-shadow: var(--shadow-sm);
+}
+
+.glass-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+
+/* ========================================
+   GLASS BUTTON VARIANTS
+   ======================================== */
+
+/* Primary button - Accent color */
+.glass-button--primary {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  color: white;
+}
+
+.glass-button--primary:hover {
+  background: var(--color-accent-hover);
+  border-color: var(--color-accent-hover);
+}
+
+.glass-button--primary:active {
+  background: var(--color-accent-active);
+  border-color: var(--color-accent-active);
+}
+
+/* Success button */
+.glass-button--success {
+  background: var(--color-success);
+  border-color: var(--color-success);
+  color: white;
+}
+
+.glass-button--success:hover {
+  background: var(--color-success-hover);
+  border-color: var(--color-success-hover);
+}
+
+/* Warning button */
+.glass-button--warning {
+  background: var(--color-warning);
+  border-color: var(--color-warning);
+  color: white;
+}
+
+.glass-button--warning:hover {
+  background: var(--color-warning-hover);
+  border-color: var(--color-warning-hover);
+}
+
+/* Error button */
+.glass-button--error {
+  background: var(--color-error);
+  border-color: var(--color-error);
+  color: white;
+}
+
+.glass-button--error:hover {
+  background: var(--color-error-hover);
+  border-color: var(--color-error-hover);
+}
+
+/* Size variants */
+.glass-button--sm {
+  height: var(--button-height-sm);
+  font-size: var(--font-size-sm);
+  padding: var(--space-1) var(--space-3);
+}
+
+.glass-button--lg {
+  height: var(--button-height-lg);
+  font-size: var(--font-size-lg);
+  padding: var(--space-3) var(--space-6);
+}
+
+/* Full width */
+.glass-button--block {
+  width: 100%;
+}
+
+/* Icon only button */
+.glass-button--icon {
+  padding: var(--space-2);
+  width: var(--button-height-md);
+  height: var(--button-height-md);
+  border-radius: var(--radius-md);
+}
+
+
+/* ========================================
+   GLASS INPUTS
+   ======================================== */
+
+.glass-input {
+  /* Base glass styling */
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(var(--blur-sm));
+  -webkit-backdrop-filter: blur(var(--blur-sm));
+  border: 1px solid var(--color-glass-border);
+  border-radius: var(--radius-md);
+
+  /* Typography */
+  color: var(--color-text-primary);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-regular);
+
+  /* Spacing */
+  padding: var(--input-padding-y) var(--input-padding-x);
+  height: var(--input-height);
+
+  /* Layout */
+  width: 100%;
+  display: block;
+
+  /* Interaction */
+  transition: all var(--transition-base);
+}
+
+.glass-input::placeholder {
+  color: var(--color-text-tertiary);
+}
+
+.glass-input:hover {
+  border-color: var(--color-glass-border-strong);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.glass-input:focus {
+  border-color: var(--color-accent);
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 0 3px var(--color-accent-transparent);
+}
+
+.glass-input:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Input with error */
+.glass-input--error {
+  border-color: var(--color-error);
+}
+
+.glass-input--error:focus {
+  box-shadow: 0 0 0 3px rgba(255, 59, 48, 0.1);
+}
+
+
+/* ========================================
+   GLASS TEXTAREA
+   ======================================== */
+
+.glass-textarea {
+  /* Inherit input styles */
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(var(--blur-sm));
+  -webkit-backdrop-filter: blur(var(--blur-sm));
+  border: 1px solid var(--color-glass-border);
+  border-radius: var(--radius-md);
+  color: var(--color-text-primary);
+  font-size: var(--font-size-base);
+  padding: var(--input-padding-y) var(--input-padding-x);
+  width: 100%;
+  min-height: 120px;
+  resize: vertical;
+  transition: all var(--transition-base);
+}
+
+.glass-textarea:hover {
+  border-color: var(--color-glass-border-strong);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.glass-textarea:focus {
+  border-color: var(--color-accent);
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 0 3px var(--color-accent-transparent);
+}
+
+
+/* ========================================
+   GLASS BADGE
+   ======================================== */
+
+.glass-badge {
+  background: var(--color-glass-bg);
+  backdrop-filter: blur(var(--blur-sm));
+  -webkit-backdrop-filter: blur(var(--blur-sm));
+  border: 1px solid var(--color-glass-border);
+  border-radius: var(--radius-full);
+  padding: var(--space-1) var(--space-3);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-secondary);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  white-space: nowrap;
+}
+
+.glass-badge--primary {
+  background: var(--color-accent-transparent);
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
+.glass-badge--success {
+  background: rgba(52, 199, 89, 0.1);
+  border-color: var(--color-success);
+  color: var(--color-success);
+}
+
+
+/* ========================================
+   GLASS DIVIDER
+   ======================================== */
+
+.glass-divider {
+  height: 1px;
+  background: var(--color-glass-border);
+  border: none;
+  margin: var(--space-4) 0;
+}
+
+.glass-divider--vertical {
+  width: 1px;
+  height: auto;
+  margin: 0 var(--space-4);
+}
+
+
+/* ========================================
+   GLASS OVERLAY
+   ======================================== */
+
+.glass-overlay {
+  background: var(--color-overlay);
+  backdrop-filter: blur(var(--blur-sm));
+  -webkit-backdrop-filter: blur(var(--blur-sm));
+}
+
+.glass-overlay--strong {
+  background: var(--color-overlay-strong);
+  backdrop-filter: blur(var(--blur-md));
+  -webkit-backdrop-filter: blur(var(--blur-md));
+}

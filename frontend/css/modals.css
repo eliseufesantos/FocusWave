@@ -1,0 +1,457 @@
+/**
+ * Modal Styles
+ * Sistema completo de modais com glassmorphism
+ */
+
+/* ========================================
+   MODAL BASE
+   ======================================== */
+
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--transition-base);
+}
+
+.modal--active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* ========================================
+   MODAL BACKDROP
+   ======================================== */
+
+.modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(var(--blur-sm));
+  -webkit-backdrop-filter: blur(var(--blur-sm));
+}
+
+/* ========================================
+   MODAL CONTAINER
+   ======================================== */
+
+.modal__container {
+  position: relative;
+  max-width: 500px;
+  width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+  transform: scale(0.95);
+  transition: transform var(--transition-base);
+}
+
+.modal--active .modal__container {
+  transform: scale(1);
+}
+
+/* ========================================
+   MODAL CONTENT
+   ======================================== */
+
+.modal__content {
+  /* Aplicar glass-card */
+  background: var(--color-glass-bg);
+  backdrop-filter: blur(var(--blur-md));
+  -webkit-backdrop-filter: blur(var(--blur-md));
+  border: 1px solid var(--color-glass-border);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-glass);
+  padding: var(--space-8);
+}
+
+/* ========================================
+   MODAL HEADER
+   ======================================== */
+
+.modal__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-6);
+}
+
+.modal__header h2 {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+  letter-spacing: var(--letter-spacing-tight);
+}
+
+/* ========================================
+   MODAL CLOSE BUTTON
+   ======================================== */
+
+.modal__close {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--color-glass-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 20px;
+  color: var(--color-text-secondary);
+  transition: all var(--transition-fast);
+  flex-shrink: 0;
+}
+
+.modal__close:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: var(--color-glass-border-strong);
+  color: var(--color-text-primary);
+}
+
+.modal__close:active {
+  transform: scale(0.95);
+}
+
+/* ========================================
+   LOGIN FORM
+   ======================================== */
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+/* Form group */
+.form-group {
+  position: relative;
+  margin-bottom: var(--space-4);
+}
+
+.form-group label {
+  display: block;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-2);
+  transition: all var(--transition-fast);
+}
+
+/* Input com validação visual */
+.form-group input {
+  width: 100%;
+}
+
+.form-group input:focus + label,
+.form-group input:not(:placeholder-shown) + label {
+  transform: translateY(-4px);
+  font-size: var(--font-size-xs);
+  color: var(--color-accent);
+}
+
+/* Estado de erro */
+.form-group--error input {
+  border-color: var(--color-error);
+}
+
+.form-group--error label {
+  color: var(--color-error);
+}
+
+/* ========================================
+   BUTTONS
+   ======================================== */
+
+.btn {
+  width: 100%;
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  cursor: pointer;
+  transition: all var(--transition-base);
+  border: none;
+  background: none;
+}
+
+.btn--primary {
+  background: var(--color-accent);
+  color: white;
+  border: 1px solid var(--color-accent);
+}
+
+.btn--primary:hover {
+  background: var(--color-accent-hover);
+  border-color: var(--color-accent-hover);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+.btn--primary:active {
+  transform: translateY(0);
+  box-shadow: var(--shadow-sm);
+}
+
+/* ========================================
+   LOGIN FORM LINK
+   ======================================== */
+
+.login-form__link {
+  display: block;
+  text-align: center;
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-sm);
+  margin-top: var(--space-2);
+  cursor: pointer;
+  transition: color var(--transition-fast);
+}
+
+.login-form__link:hover {
+  color: var(--color-accent);
+}
+
+/* ========================================
+   BODY MODAL OPEN STATE
+   ======================================== */
+
+body.body--modal-open {
+  overflow: hidden;
+}
+
+body.body--modal-open #main-container {
+  filter: blur(4px);
+  transition: filter var(--transition-base);
+}
+
+/* ========================================
+   TIMER MODAL
+   ======================================== */
+
+.timer-modal {
+  text-align: center;
+}
+
+/* Círculo de progresso */
+.timer-modal__circle {
+  position: relative;
+  width: 250px;
+  height: 250px;
+  margin: 0 auto var(--space-6);
+}
+
+.timer-modal__svg {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+
+.timer-modal__track {
+  fill: none;
+  stroke: var(--color-glass-border);
+  stroke-width: 8;
+}
+
+.timer-modal__progress {
+  fill: none;
+  stroke: var(--color-accent);
+  stroke-width: 8;
+  stroke-linecap: round;
+  stroke-dasharray: 565.48; /* 2 * PI * 90 */
+  stroke-dashoffset: 0;
+  transition: stroke-dashoffset 1s linear, stroke 0.3s ease;
+}
+
+/* Estados visuais do progresso */
+.timer-modal__progress--ready {
+  stroke: var(--color-accent); /* Azul */
+}
+
+.timer-modal__progress--running {
+  stroke: var(--color-success); /* Verde */
+  animation: pulse-progress 2s ease-in-out infinite;
+}
+
+.timer-modal__progress--paused {
+  stroke: var(--color-warning); /* Laranja */
+}
+
+.timer-modal__progress--break {
+  stroke: #9D4EDD; /* Roxo */
+}
+
+@keyframes pulse-progress {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+.timer-modal__time {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 48px;
+  font-weight: var(--font-weight-bold);
+  font-variant-numeric: tabular-nums;
+  color: var(--color-text-primary);
+}
+
+/* Status badge */
+.timer-modal__status {
+  margin-bottom: var(--space-6);
+}
+
+.status-badge {
+  display: inline-block;
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-full);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  border: 1px solid;
+}
+
+.status-badge--ready {
+  background: rgba(0, 122, 255, 0.1);
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
+.status-badge--running {
+  background: rgba(52, 199, 89, 0.1);
+  border-color: var(--color-success);
+  color: var(--color-success);
+}
+
+.status-badge--paused {
+  background: rgba(255, 149, 0, 0.1);
+  border-color: var(--color-warning);
+  color: var(--color-warning);
+}
+
+.status-badge--break {
+  background: rgba(157, 78, 221, 0.1);
+  border-color: #9D4EDD;
+  color: #9D4EDD;
+}
+
+/* Controles */
+.timer-modal__controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-8);
+}
+
+.btn-icon {
+  min-width: 44px;
+  min-height: 44px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: var(--color-glass-bg);
+  border: 1px solid var(--color-glass-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 20px;
+  transition: all var(--transition-base);
+}
+
+.btn-icon--large {
+  width: 64px;
+  height: 64px;
+  font-size: 28px;
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+}
+
+.btn-icon:hover {
+  background: var(--color-glass-bg-hover);
+  border-color: var(--color-glass-border-strong);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-icon--large:hover {
+  background: var(--color-accent-hover);
+  border-color: var(--color-accent-hover);
+}
+
+.btn-icon:active {
+  transform: translateY(0);
+}
+
+.btn-icon:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Configurações */
+.timer-modal__settings {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-4);
+  margin-top: var(--space-6);
+}
+
+.setting-group {
+  text-align: left;
+}
+
+.setting-group label {
+  display: block;
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-2);
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-wide);
+}
+
+.setting-group select {
+  width: 100%;
+}
+
+
+/* ========================================
+   RESPONSIVE
+   ======================================== */
+
+@media (max-width: 767px) {
+  .modal__container {
+    width: 95%;
+    max-height: 95vh;
+  }
+
+  .modal__content {
+    padding: var(--space-6);
+  }
+
+  .modal__header h2 {
+    font-size: var(--font-size-lg);
+  }
+
+  .timer-modal__circle {
+    width: 200px;
+    height: 200px;
+  }
+
+  .timer-modal__time {
+    font-size: 36px;
+  }
+
+  .timer-modal__settings {
+    grid-template-columns: 1fr;
+  }
+}

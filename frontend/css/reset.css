@@ -1,0 +1,202 @@
+/**
+ * Modern CSS Reset
+ * Opinionated reset for consistent cross-browser styling
+ */
+
+/* ========================================
+   Box sizing reset
+   ======================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+
+/* ========================================
+   Remove default margin and padding
+   ======================================== */
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+
+/* ========================================
+   Document & body setup
+   ======================================== */
+
+html {
+  /* Prevent font size inflation */
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+
+  /* Smooth scrolling */
+  scroll-behavior: smooth;
+}
+
+body {
+  /* Minimum body height */
+  min-height: 100vh;
+
+  /* Improve text rendering */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Default line height */
+  line-height: 1.5;
+}
+
+
+/* ========================================
+   Typography defaults
+   ======================================== */
+
+h1, h2, h3, h4, h5, h6 {
+  /* Balance text wrapping on headings */
+  text-wrap: balance;
+
+  /* Inherit font weight */
+  font-weight: inherit;
+  font-size: inherit;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+  /* Prevent text overflow */
+  overflow-wrap: break-word;
+}
+
+
+/* ========================================
+   Media elements
+   ======================================== */
+
+img,
+picture,
+video,
+canvas,
+svg {
+  /* Make media responsive */
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+svg {
+  /* Allow SVG sizing */
+  fill: currentColor;
+}
+
+
+/* ========================================
+   Form elements
+   ======================================== */
+
+input,
+button,
+textarea,
+select {
+  /* Inherit fonts */
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  /* Remove button styling */
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+input,
+textarea {
+  /* Remove default appearance */
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+/* Remove default outline (we'll add custom focus styles) */
+:focus {
+  outline: none;
+}
+
+/* Show outline for keyboard navigation */
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+
+/* ========================================
+   Lists
+   ======================================== */
+
+ul,
+ol {
+  list-style: none;
+}
+
+
+/* ========================================
+   Links
+   ======================================== */
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+
+/* ========================================
+   Tables
+   ======================================== */
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+
+/* ========================================
+   Accessibility - Reduce motion
+   ======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+
+/* ========================================
+   Hidden attribute
+   ======================================== */
+
+[hidden] {
+  display: none !important;
+}
+
+
+/* ========================================
+   Screen reader only utility
+   ======================================== */
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
