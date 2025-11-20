@@ -118,83 +118,133 @@
 }
 
 /* ========================================
-   LOGIN FORM
+   MODALS
    ======================================== */
-
-.login-form {
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
   display: flex;
-  flex-direction: column;
-  gap: var(--space-4);
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--transition-fast);
 }
 
-/* Form group */
-.form-group {
+.modal--active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.modal__backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+}
+
+.modal__content {
   position: relative;
-  margin-bottom: var(--space-4);
+  width: 90%;
+  max-width: 400px;
+  padding: var(--spacing-lg);
+  z-index: 1001;
+  transform: translateY(20px);
+  transition: transform var(--transition-smooth);
+}
+
+.modal--active .modal__content {
+  transform: translateY(0);
+}
+
+.modal__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-lg);
+}
+
+.modal__header h2 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.close-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  padding: 4px;
+  border-radius: var(--radius-sm);
+  transition: var(--transition-fast);
+}
+
+.close-btn:hover {
+  background: var(--bg-glass-hover);
+  color: var(--text-primary);
+}
+
+/* Form Styles inside Modals */
+.form-group {
+  margin-bottom: var(--spacing-md);
 }
 
 .form-group label {
   display: block;
-  font-size: var(--font-size-sm);
-  font-weight: var(--font-weight-medium);
-  color: var(--color-text-primary);
-  margin-bottom: var(--space-2);
-  transition: all var(--transition-fast);
+  margin-bottom: var(--spacing-xs);
+  font-size: 0.9rem;
+  color: var(--text-secondary);
 }
 
-/* Input com validação visual */
-.form-group input {
+.input-icon {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-icon i {
+  position: absolute;
+  left: 12px;
+  color: var(--text-secondary);
+  width: 18px;
+  height: 18px;
+  pointer-events: none;
+}
+
+.input-icon input {
+  padding-left: 40px;
   width: 100%;
-}
-
-.form-group input:focus + label,
-.form-group input:not(:placeholder-shown) + label {
-  transform: translateY(-4px);
-  font-size: var(--font-size-xs);
-  color: var(--color-accent);
-}
-
-/* Estado de erro */
-.form-group--error input {
-  border-color: var(--color-error);
-}
-
-.form-group--error label {
-  color: var(--color-error);
-}
-
-/* ========================================
-   BUTTONS
-   ======================================== */
-
-.btn {
-  width: 100%;
-  padding: var(--space-3) var(--space-4);
-  border-radius: var(--radius-md);
-  font-size: var(--font-size-base);
-  font-weight: var(--font-weight-medium);
-  cursor: pointer;
-  transition: all var(--transition-base);
-  border: none;
-  background: none;
 }
 
 .btn--primary {
-  background: var(--color-accent);
-  color: white;
-  border: 1px solid var(--color-accent);
+  width: 100%;
+  padding: 12px;
+  background: var(--text-primary);
+  color: #000;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition-fast);
+  margin-top: var(--spacing-sm);
 }
 
 .btn--primary:hover {
-  background: var(--color-accent-hover);
-  border-color: var(--color-accent-hover);
+  opacity: 0.9;
   transform: translateY(-1px);
-  box-shadow: var(--shadow-md);
 }
 
-.btn--primary:active {
-  transform: translateY(0);
-  box-shadow: var(--shadow-sm);
+/* Body lock */
+body.body--modal-open {
+  overflow: hidden;
 }
 
 /* ========================================
@@ -261,33 +311,41 @@ body.body--modal-open #main-container {
   stroke: var(--color-accent);
   stroke-width: 8;
   stroke-linecap: round;
-  stroke-dasharray: 565.48; /* 2 * PI * 90 */
+  stroke-dasharray: 565.48;
+  /* 2 * PI * 90 */
   stroke-dashoffset: 0;
   transition: stroke-dashoffset 1s linear, stroke 0.3s ease;
 }
 
 /* Estados visuais do progresso */
 .timer-modal__progress--ready {
-  stroke: var(--color-accent); /* Azul */
+  stroke: var(--color-accent);
+  /* Azul */
 }
 
 .timer-modal__progress--running {
-  stroke: var(--color-success); /* Verde */
+  stroke: var(--color-success);
+  /* Verde */
   animation: pulse-progress 2s ease-in-out infinite;
 }
 
 .timer-modal__progress--paused {
-  stroke: var(--color-warning); /* Laranja */
+  stroke: var(--color-warning);
+  /* Laranja */
 }
 
 .timer-modal__progress--break {
-  stroke: #9D4EDD; /* Roxo */
+  stroke: #9D4EDD;
+  /* Roxo */
 }
 
 @keyframes pulse-progress {
-  0%, 100% {
+
+  0%,
+  100% {
     opacity: 1;
   }
+
   50% {
     opacity: 0.7;
   }

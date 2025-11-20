@@ -1,0 +1,187 @@
+/* Status Bar Timer Container */
+.status-bar__timer {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--border-glass);
+    border-radius: var(--radius-full);
+    padding: 4px 6px 4px 16px;
+    /* Extra padding left for text, less right for buttons */
+    transition: all 0.3s ease;
+}
+
+.status-bar__timer:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Timer Display (Text part) */
+.timer-display {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    /* Removed individual glass style to unify container */
+    background: transparent;
+    padding: 0;
+    border: none;
+}
+
+.timer-icon {
+    width: 18px;
+    height: 18px;
+    color: var(--accent-primary);
+    filter: drop-shadow(0 0 8px rgba(var(--accent-primary-rgb), 0.4));
+}
+
+.timer-time {
+    font-family: 'Inter', monospace;
+    font-weight: 600;
+    font-size: 1.1rem;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.5px;
+    color: var(--text-primary);
+}
+
+.timer-status {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    padding-left: var(--spacing-sm);
+    border-left: 1px solid var(--border-glass);
+    font-weight: 500;
+}
+
+/* Timer Controls */
+.timer-controls {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 2px;
+    padding-left: var(--spacing-sm);
+    border-left: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.timer-controls .icon-btn {
+    width: 36px;
+    height: 36px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: transparent;
+    border: none;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.timer-controls .icon-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text-primary);
+    transform: translateY(-1px);
+}
+
+.timer-controls .icon-btn:active {
+    transform: translateY(0) scale(0.95);
+}
+
+.timer-controls .icon-btn:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.timer-controls .icon-btn i,
+.timer-controls .icon-btn svg {
+    width: 18px;
+    height: 18px;
+}
+
+/* Modal Timer (Circular) */
+.timer-modal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-lg);
+    padding: var(--spacing-md);
+}
+
+.timer-modal__circle {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.timer-modal__svg {
+    width: 100%;
+    height: 100%;
+    transform: rotate(-90deg);
+}
+
+.timer-modal__track {
+    fill: none;
+    stroke: rgba(255, 255, 255, 0.1);
+    stroke-width: 8;
+}
+
+.timer-modal__progress {
+    fill: none;
+    stroke: var(--accent-primary);
+    stroke-width: 8;
+    stroke-dasharray: 565;
+    /* 2 * PI * 90 */
+    stroke-dashoffset: 0;
+    transition: stroke-dashoffset 1s linear;
+    stroke-linecap: round;
+}
+
+.timer-modal__time {
+    position: absolute;
+    font-size: 3rem;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+}
+
+.timer-modal__status {
+    text-align: center;
+}
+
+.status-badge {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 6px 16px;
+    border-radius: var(--radius-full);
+    font-size: 0.9rem;
+    color: var(--text-primary);
+}
+
+.timer-modal__controls {
+    display: flex;
+    gap: var(--spacing-md);
+}
+
+.btn-icon--large {
+    width: 64px;
+    height: 64px;
+    font-size: 1.5rem;
+    background: var(--accent-primary);
+    color: #000;
+}
+
+.btn-icon--large:hover {
+    background: #fff;
+    transform: scale(1.05);
+}
+
+.timer-modal__settings {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-md);
+}

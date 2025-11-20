@@ -4,207 +4,227 @@
  */
 
 :root {
-  /* ========================================
-     COLOR PALETTE - Apple-inspired
-     ======================================== */
+   /* ========================================
+  /* Premium Dark Theme Palette - FocusWave Identity */
+   --bg-app: #0f172a;
+   /* Deep Ocean Blue */
+   --bg-glass: rgba(15, 23, 42, 0.7);
+   --bg-glass-hover: rgba(30, 41, 59, 0.8);
+   --border-glass: rgba(255, 255, 255, 0.1);
 
-  /* Background */
-  --color-background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-  --color-background-solid: #1a1a2e;
+   /* Text Colors */
+   --text-primary: #f8fafc;
+   --text-secondary: #94a3b8;
+   --text-muted: #64748b;
 
-  /* Glass effect colors */
-  --color-glass-bg: rgba(255, 255, 255, 0.08);
-  --color-glass-bg-hover: rgba(255, 255, 255, 0.12);
-  --color-glass-bg-active: rgba(255, 255, 255, 0.16);
-  --color-glass-border: rgba(255, 255, 255, 0.18);
-  --color-glass-border-strong: rgba(255, 255, 255, 0.25);
+   /* Accents */
+   --accent-primary: #06b6d4;
+   /* Electric Cyan */
+   --accent-secondary: #3b82f6;
+   /* Blue */
+   --accent-glow: rgba(6, 182, 212, 0.2);
 
-  /* Accent colors - Apple blue */
-  --color-accent: #f83f02;
-  --color-accent-hover: #0051D5;
-  --color-accent-active: #0040A8;
-  --color-accent-transparent: rgba(0, 122, 255, 0.1);
+   /* Status Colors */
+   --status-focus: #06b6d4;
+   --status-break: #10b981;
+   /* Emerald */
 
-  /* Semantic colors - Apple system colors */
-  --color-success: #34C759;
-  --color-success-hover: #2DB04A;
-  --color-warning: #FF9500;
-  --color-warning-hover: #E08600;
-  --color-error: #FF3B30;
-  --color-error-hover: #E0342A;
+   /* Spacing & Radius */
+   --radius-sm: 8px;
+   --radius-md: 16px;
+   --radius-lg: 24px;
+   --radius-full: 9999px;
 
-  /* Text colors */
-  --color-text-primary: rgba(255, 255, 255, 0.95);
-  --color-text-secondary: rgba(255, 255, 255, 0.65);
-  --color-text-tertiary: rgba(255, 255, 255, 0.45);
-  --color-text-disabled: rgba(255, 255, 255, 0.25);
+   --spacing-xs: 4px;
+   --spacing-sm: 8px;
+   --spacing-md: 16px;
+   --spacing-lg: 24px;
+   --spacing-xl: 32px;
 
-  /* Overlay colors */
-  --color-overlay: rgba(0, 0, 0, 0.5);
-  --color-overlay-strong: rgba(0, 0, 0, 0.75);
+   /* Transitions */
+   --transition-fast: 0.2s ease;
+   --transition-smooth: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+
+   /* Semantic colors - Apple system colors */
+   --color-success: #10b981;
+   --color-success-hover: #059669;
+   --color-warning: #f59e0b;
+   --color-warning-hover: #d97706;
+   --color-error: #ef4444;
+   --color-error-hover: #dc2626;
+
+   /* Text colors */
+   --color-text-primary: rgba(255, 255, 255, 0.95);
+   --color-text-secondary: rgba(255, 255, 255, 0.7);
+   --color-text-tertiary: rgba(255, 255, 255, 0.5);
+   --color-text-disabled: rgba(255, 255, 255, 0.3);
+
+   /* Overlay colors */
+   --color-overlay: rgba(15, 23, 42, 0.6);
+   --color-overlay-strong: rgba(15, 23, 42, 0.85);
 
 
-  /* ========================================
+   /* ========================================
      TYPOGRAPHY - San Francisco style
      ======================================== */
 
-  /* Font families */
-  --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
-  --font-family-mono: 'SF Mono', Monaco, 'Cascadia Code', 'Courier New', monospace;
+   /* Font families */
+   --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+   --font-family-mono: 'SF Mono', Monaco, 'Cascadia Code', 'Courier New', monospace;
 
-  /* Font sizes - modular scale */
-  --font-size-xs: 12px;
-  --font-size-sm: 14px;
-  --font-size-base: 16px;
-  --font-size-lg: 18px;
-  --font-size-xl: 24px;
-  --font-size-2xl: 32px;
-  --font-size-3xl: 40px;
+   /* Font sizes - modular scale */
+   --font-size-xs: 12px;
+   --font-size-sm: 14px;
+   --font-size-base: 16px;
+   --font-size-lg: 18px;
+   --font-size-xl: 24px;
+   --font-size-2xl: 32px;
+   --font-size-3xl: 40px;
 
-  /* Font weights - Apple standard */
-  --font-weight-regular: 400;
-  --font-weight-medium: 500;
-  --font-weight-semibold: 600;
-  --font-weight-bold: 700;
+   /* Font weights - Apple standard */
+   --font-weight-regular: 400;
+   --font-weight-medium: 500;
+   --font-weight-semibold: 600;
+   --font-weight-bold: 700;
 
-  /* Line heights */
-  --line-height-tight: 1.2;
-  --line-height-normal: 1.5;
-  --line-height-relaxed: 1.75;
+   /* Line heights */
+   --line-height-tight: 1.2;
+   --line-height-normal: 1.5;
+   --line-height-relaxed: 1.75;
 
-  /* Letter spacing */
-  --letter-spacing-tight: -0.02em;
-  --letter-spacing-normal: 0;
-  --letter-spacing-wide: 0.02em;
+   /* Letter spacing */
+   --letter-spacing-tight: -0.02em;
+   --letter-spacing-normal: 0;
+   --letter-spacing-wide: 0.02em;
 
 
-  /* ========================================
+   /* ========================================
      SPACING - 4px base unit
      ======================================== */
 
-  --space-1: 4px;
-  --space-2: 8px;
-  --space-3: 12px;
-  --space-4: 16px;
-  --space-5: 20px;
-  --space-6: 24px;
-  --space-8: 32px;
-  --space-10: 40px;
-  --space-12: 48px;
-  --space-16: 64px;
-  --space-20: 80px;
-  --space-24: 96px;
+   --space-1: 4px;
+   --space-2: 8px;
+   --space-3: 12px;
+   --space-4: 16px;
+   --space-5: 20px;
+   --space-6: 24px;
+   --space-8: 32px;
+   --space-10: 40px;
+   --space-12: 48px;
+   --space-16: 64px;
+   --space-20: 80px;
+   --space-24: 96px;
 
 
-  /* ========================================
+   /* ========================================
      BORDER RADIUS - Apple standard
      ======================================== */
 
-  --radius-xs: 4px;
-  --radius-sm: 8px;
-  --radius-md: 12px;
-  --radius-lg: 16px;
-  --radius-xl: 20px;
-  --radius-2xl: 24px;
-  --radius-3xl: 28px;
-  --radius-full: 9999px;
+   --radius-xs: 4px;
+   --radius-sm: 8px;
+   --radius-md: 12px;
+   --radius-lg: 16px;
+   --radius-xl: 20px;
+   --radius-2xl: 24px;
+   --radius-3xl: 28px;
+   --radius-full: 9999px;
 
 
-  /* ========================================
+   /* ========================================
      BLUR VALUES - Glassmorphism
      ======================================== */
 
-  --blur-xs: 4px;
-  --blur-sm: 8px;
-  --blur-md: 16px;
-  --blur-lg: 24px;
-  --blur-xl: 40px;
-  --blur-2xl: 64px;
+   --blur-xs: 4px;
+   --blur-sm: 8px;
+   --blur-md: 16px;
+   --blur-lg: 24px;
+   --blur-xl: 40px;
+   --blur-2xl: 64px;
 
 
-  /* ========================================
+   /* ========================================
      SHADOWS - Soft Apple-style
      ======================================== */
 
-  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.1);
-  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.15);
-  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.2);
-  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.25);
-  --shadow-xl: 0 16px 48px rgba(0, 0, 0, 0.3);
-  --shadow-2xl: 0 24px 64px rgba(0, 0, 0, 0.4);
+   --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.1);
+   --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.15);
+   --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.2);
+   --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.25);
+   --shadow-xl: 0 16px 48px rgba(0, 0, 0, 0.3);
+   --shadow-2xl: 0 24px 64px rgba(0, 0, 0, 0.4);
 
-  /* Inner shadows for glass effect */
-  --shadow-inner: inset 0 1px 1px rgba(255, 255, 255, 0.1);
-  --shadow-glass:
-    0 8px 32px rgba(0, 0, 0, 0.2),
-    inset 0 1px 1px rgba(255, 255, 255, 0.1);
+   /* Inner shadows for glass effect */
+   --shadow-inner: inset 0 1px 1px rgba(255, 255, 255, 0.1);
+   --shadow-glass:
+      0 8px 32px rgba(0, 0, 0, 0.2),
+      inset 0 1px 1px rgba(255, 255, 255, 0.1);
 
 
-  /* ========================================
+   /* ========================================
      TRANSITIONS - Smooth Apple animations
      ======================================== */
 
-  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
-  --transition-base: 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  --transition-slow: 350ms cubic-bezier(0.4, 0, 0.2, 1);
-  --transition-slowest: 500ms cubic-bezier(0.4, 0, 0.2, 1);
+   --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+   --transition-base: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+   --transition-slow: 350ms cubic-bezier(0.4, 0, 0.2, 1);
+   --transition-slowest: 500ms cubic-bezier(0.4, 0, 0.2, 1);
 
-  /* Easing curves */
-  --ease-in: cubic-bezier(0.4, 0, 1, 1);
-  --ease-out: cubic-bezier(0, 0, 0.2, 1);
-  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
-  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+   /* Easing curves */
+   --ease-in: cubic-bezier(0.4, 0, 1, 1);
+   --ease-out: cubic-bezier(0, 0, 0.2, 1);
+   --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+   --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
 
 
-  /* ========================================
+   /* ========================================
      Z-INDEX LAYERS
      ======================================== */
 
-  --z-base: 0;
-  --z-dropdown: 100;
-  --z-sticky: 200;
-  --z-fixed: 300;
-  --z-modal-backdrop: 400;
-  --z-modal: 500;
-  --z-popover: 600;
-  --z-tooltip: 700;
-  --z-toast: 800;
+   --z-base: 0;
+   --z-dropdown: 100;
+   --z-sticky: 200;
+   --z-fixed: 300;
+   --z-modal-backdrop: 400;
+   --z-modal: 500;
+   --z-popover: 600;
+   --z-tooltip: 700;
+   --z-toast: 800;
 
 
-  /* ========================================
+   /* ========================================
      BREAKPOINTS (for reference in JS)
      ======================================== */
 
-  --breakpoint-sm: 640px;
-  --breakpoint-md: 768px;
-  --breakpoint-lg: 1024px;
-  --breakpoint-xl: 1280px;
-  --breakpoint-2xl: 1536px;
+   --breakpoint-sm: 640px;
+   --breakpoint-md: 768px;
+   --breakpoint-lg: 1024px;
+   --breakpoint-xl: 1280px;
+   --breakpoint-2xl: 1536px;
 
 
-  /* ========================================
+   /* ========================================
      COMPONENT-SPECIFIC TOKENS
      ======================================== */
 
-  /* Buttons */
-  --button-height-sm: 32px;
-  --button-height-md: 40px;
-  --button-height-lg: 48px;
-  --button-padding-x: var(--space-4);
-  --button-padding-y: var(--space-2);
+   /* Buttons */
+   --button-height-sm: 32px;
+   --button-height-md: 40px;
+   --button-height-lg: 48px;
+   --button-padding-x: var(--space-4);
+   --button-padding-y: var(--space-2);
 
-  /* Inputs */
-  --input-height: 44px;
-  --input-padding-x: var(--space-4);
-  --input-padding-y: var(--space-3);
+   /* Inputs */
+   --input-height: 44px;
+   --input-padding-x: var(--space-4);
+   --input-padding-y: var(--space-3);
 
-  /* Modal */
-  --modal-max-width: 560px;
-  --modal-padding: var(--space-6);
+   /* Modal */
+   --modal-max-width: 560px;
+   --modal-padding: var(--space-6);
 
-  /* Header */
-  --header-height: 64px;
+   /* Header */
+   --header-height: 64px;
 
-  /* Timer display */
-  --timer-font-size: 72px;
+   /* Timer display */
+   --timer-font-size: 72px;
 }

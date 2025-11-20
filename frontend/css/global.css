@@ -34,7 +34,7 @@ body {
   flex-direction: column;
 
   /* Padding top para compensar header fixo */
-  padding-top: 64px;
+  padding-top: 80px;
 }
 
 
@@ -107,99 +107,106 @@ body {
    TYPOGRAPHY STYLES
    ======================================== */
 
-h1, h2, h3, h4, h5, h6 {
-  font-weight: var(--font-weight-semibold);
-  line-height: var(--line-height-tight);
-  letter-spacing: var(--letter-spacing-tight);
-  color: var(--color-text-primary);
+body {
+  background-color: var(--bg-app);
+  color: var(--text-primary);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
 
-h1 {
-  font-size: var(--font-size-3xl);
-  font-weight: var(--font-weight-bold);
+/* Status Bar */
+.status-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--spacing-lg);
+  background: var(--bg-glass);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border-glass);
+  z-index: 100;
 }
 
-h2 {
-  font-size: var(--font-size-2xl);
-}
-
-h3 {
-  font-size: var(--font-size-xl);
-}
-
-h4 {
-  font-size: var(--font-size-lg);
-}
-
-h5, h6 {
-  font-size: var(--font-size-base);
-}
-
-p {
-  color: var(--color-text-secondary);
-  line-height: var(--line-height-relaxed);
-}
-
-small {
-  font-size: var(--font-size-sm);
-  color: var(--color-text-tertiary);
-}
-
-strong, b {
-  font-weight: var(--font-weight-semibold);
-  color: var(--color-text-primary);
+.status-bar__brand {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  font-weight: 600;
+  font-size: 1.1rem;
 }
 
 
-/* ========================================
-   LINKS
-   ======================================== */
 
-a {
-  color: var(--color-accent);
-  text-decoration: none;
-  transition: color var(--transition-fast);
+.status-bar__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
 }
 
-a:hover {
-  color: var(--color-accent-hover);
+/* Main Layout */
+.main-layout {
+  flex: 1;
+  display: flex;
+  gap: var(--spacing-md);
+  padding: var(--spacing-md);
+  overflow: hidden;
+  position: relative;
 }
 
-a:active {
-  color: var(--color-accent-active);
-}
-
-
-/* ========================================
-   CODE & PRE
-   ======================================== */
-
-code {
-  font-family: var(--font-family-mono);
-  font-size: 0.9em;
-  background: var(--color-glass-bg);
-  padding: var(--space-1) var(--space-2);
-  border-radius: var(--radius-xs);
-  color: var(--color-accent);
-  border: 1px solid var(--color-glass-border);
-}
-
-pre {
-  font-family: var(--font-family-mono);
-  font-size: var(--font-size-sm);
-  background: var(--color-glass-bg);
-  padding: var(--space-4);
+/* Glass Card Base */
+.glass-card {
+  background: var(--bg-glass);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--border-glass);
   border-radius: var(--radius-md);
-  border: 1px solid var(--color-glass-border);
-  overflow-x: auto;
-  line-height: var(--line-height-relaxed);
 }
 
-pre code {
-  background: none;
-  padding: 0;
+/* Buttons & Inputs Base */
+.icon-btn {
+  background: transparent;
   border: none;
-  color: var(--color-text-primary);
+  color: var(--text-secondary);
+  padding: var(--spacing-sm);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: var(--transition-fast);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-btn:hover {
+  background: var(--bg-glass-hover);
+  color: var(--text-primary);
+}
+
+.icon-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.glass-input {
+  background: var(--bg-glass);
+  border: 1px solid var(--border-glass);
+  color: var(--text-primary);
+  border-radius: var(--radius-sm);
+  padding: var(--spacing-sm) var(--spacing-md);
+  outline: none;
+  transition: var(--transition-fast);
+}
+
+.glass-input:focus {
+  border-color: var(--accent-primary);
+  background: var(--bg-glass-hover);
 }
 
 
@@ -252,33 +259,86 @@ pre code {
   justify-content: space-between;
 }
 
-.gap-1 { gap: var(--space-1); }
-.gap-2 { gap: var(--space-2); }
-.gap-3 { gap: var(--space-3); }
-.gap-4 { gap: var(--space-4); }
-.gap-6 { gap: var(--space-6); }
-.gap-8 { gap: var(--space-8); }
+.gap-1 {
+  gap: var(--space-1);
+}
+
+.gap-2 {
+  gap: var(--space-2);
+}
+
+.gap-3 {
+  gap: var(--space-3);
+}
+
+.gap-4 {
+  gap: var(--space-4);
+}
+
+.gap-6 {
+  gap: var(--space-6);
+}
+
+.gap-8 {
+  gap: var(--space-8);
+}
 
 
 /* ========================================
    SPACING UTILITIES
    ======================================== */
 
-.mt-2 { margin-top: var(--space-2); }
-.mt-3 { margin-top: var(--space-3); }
-.mt-4 { margin-top: var(--space-4); }
-.mt-6 { margin-top: var(--space-6); }
-.mt-8 { margin-top: var(--space-8); }
+.mt-2 {
+  margin-top: var(--space-2);
+}
 
-.mb-2 { margin-bottom: var(--space-2); }
-.mb-3 { margin-bottom: var(--space-3); }
-.mb-4 { margin-bottom: var(--space-4); }
-.mb-6 { margin-bottom: var(--space-6); }
-.mb-8 { margin-bottom: var(--space-8); }
+.mt-3 {
+  margin-top: var(--space-3);
+}
 
-.p-4 { padding: var(--space-4); }
-.p-6 { padding: var(--space-6); }
-.p-8 { padding: var(--space-8); }
+.mt-4 {
+  margin-top: var(--space-4);
+}
+
+.mt-6 {
+  margin-top: var(--space-6);
+}
+
+.mt-8 {
+  margin-top: var(--space-8);
+}
+
+.mb-2 {
+  margin-bottom: var(--space-2);
+}
+
+.mb-3 {
+  margin-bottom: var(--space-3);
+}
+
+.mb-4 {
+  margin-bottom: var(--space-4);
+}
+
+.mb-6 {
+  margin-bottom: var(--space-6);
+}
+
+.mb-8 {
+  margin-bottom: var(--space-8);
+}
+
+.p-4 {
+  padding: var(--space-4);
+}
+
+.p-6 {
+  padding: var(--space-6);
+}
+
+.p-8 {
+  padding: var(--space-8);
+}
 
 
 /* ========================================
@@ -326,10 +386,21 @@ pre code {
    OPACITY UTILITIES
    ======================================== */
 
-.opacity-0 { opacity: 0; }
-.opacity-50 { opacity: 0.5; }
-.opacity-75 { opacity: 0.75; }
-.opacity-100 { opacity: 1; }
+.opacity-0 {
+  opacity: 0;
+}
+
+.opacity-50 {
+  opacity: 0.5;
+}
+
+.opacity-75 {
+  opacity: 0.75;
+}
+
+.opacity-100 {
+  opacity: 1;
+}
 
 
 /* ========================================
@@ -367,9 +438,12 @@ pre code {
    ======================================== */
 
 @keyframes pulse {
-  0%, 100% {
+
+  0%,
+  100% {
     opacity: 1;
   }
+
   50% {
     opacity: 0.5;
   }
@@ -389,6 +463,7 @@ pre code {
     opacity: 0;
     transform: translateY(10px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
